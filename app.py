@@ -19,7 +19,10 @@ st.write("Enter the details of the car to estimate its selling price.")
 
 # Input fields using real dataset values
 name = st.selectbox('Car Model (name)', car_names)
-company = st.selectbox('Brand (company)', companies)
+
+# Auto-select the company based on the selected car name
+default_company = car_to_company.get(name, "")
+
 year = st.number_input('Year of Manufacture', min_value=1990, max_value=2025, value=2020)
 kms_driven = st.number_input('Kilometers Driven', min_value=0, step=500)
 fuel_type = st.selectbox('Fuel Type', fuel_types)
